@@ -38,7 +38,7 @@ export default async function Home() {
                 className="w-full max-w-sm"
                 variant="outline"
               >
-                <GitBranchIcon className="w-2 size-4" />
+                <GitBranchIcon className="mr-2 size-4" />
                 Sign in with Github
               </Button>
             </form>
