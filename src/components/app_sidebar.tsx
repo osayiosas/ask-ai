@@ -1,4 +1,3 @@
-
 import {
   Sidebar,
   SidebarContent,
@@ -9,9 +8,24 @@ import {
   SidebarMenu,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NewChat } from "./new_chat";
+import { NewChat } from "@/components/new_chat";
+import { ProfileButton } from "@/components/profile_button";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
-export const AppSidebar = () => {
+export const AppSidebar = async () => {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/");
+  }
+
+  if (!session.user) {
+    redirect("/");
+  }
+
+  const user = session.user;
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -33,7 +47,7 @@ export const AppSidebar = () => {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            {/* <ProfileButton user={user} /> */}
+            <ProfileButton user={user} />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
