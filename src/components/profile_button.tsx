@@ -12,7 +12,7 @@ export const ProfileButton = ({ user }: { user: User }) => {
         await signOut({ redirectTo: "/" });
       }}
     >
-      <SidebarMenuButton size="lg">
+      <SidebarMenuButton size="lg" type="submit">
         <Avatar className="size-8">
           <AvatarImage src={user.image || "https://github.com/shadcn.png"} />
           <AvatarFallback>
