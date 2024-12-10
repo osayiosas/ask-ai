@@ -1,4 +1,26 @@
+import { ClockIcon, MessageSquareIcon, ZapIcon } from "lucide-react";
 import Image from "next/image";
+
+const cards = [
+  {
+    id: 1,
+    icon: MessageSquareIcon,
+    title: "Normal Conversation",
+    description: "Chat with our AI to get answers to your questions",
+  },
+  {
+    id: 2,
+    icon: ZapIcon,
+    title: "Instant Answers",
+    description: "Get instant answers to your questions",
+  },
+  {
+    id: 3,
+    icon: ClockIcon,
+    title: "Real Conversation",
+    description: "Real conversation with our AI",
+  },
+];
 
 export default function page() {
   return (
@@ -26,6 +48,24 @@ export default function page() {
                 Powered by
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="w-full flex items-center justify-center">
+        <div className="container px-4 md:px-5">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className="flex flex-col items-center p-6 space-y-4 bg-white rounded-lg shadow-lg dark:bg-gray-800"
+              >
+                <card.icon size={48} />
+                <h3 className="text-lg font-semibold">{card.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {card.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

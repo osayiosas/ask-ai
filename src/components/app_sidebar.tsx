@@ -31,7 +31,7 @@ export const AppSidebar = async () => {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <NewChat />
+            <NewChat user={user} />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
